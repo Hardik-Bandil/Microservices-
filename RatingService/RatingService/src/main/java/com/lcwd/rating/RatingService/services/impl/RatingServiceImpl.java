@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,6 +17,9 @@ public class RatingServiceImpl implements RatingService {
     private RatingRepository ratingRepository;
     @Override
     public Rating create(Rating rating) {
+        Random random = new Random();
+        Integer newRandom = Math.abs(random.nextInt()); // Use absolute value to avoid negative IDs
+        rating.setRatingId(newRandom);
        return ratingRepository.save(rating);
     }
 
@@ -26,7 +30,7 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public List<Rating> getRatingByUserId(String userId) {
-        return ratingRepository.findByUserId(userId);
+        return ratingRepository.getByUserId(userId);
     }
 
     @Override

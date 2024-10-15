@@ -19,17 +19,17 @@ public class RatingController {
 
 
 
-    @PostMapping("/{rating})")
+    @PostMapping("/{rating}")
     public ResponseEntity<Rating> create(@RequestBody Rating rating) {
          return  ResponseEntity.status(HttpStatus.CREATED).body(ratingService.create(rating));
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<Rating>> getRating() {
         return ResponseEntity.ok(ratingService.getRatings());
     }
 
-    @GetMapping("users/{userId}")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<List<Rating>> getRatingUserId(String  userId) {
         return ResponseEntity.ok(ratingService.getRatingByUserId(userId));
 

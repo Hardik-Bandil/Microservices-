@@ -1,5 +1,6 @@
 package com.lcwd.user.services.entities;
 
+import com.lcwd.rating.RatingService.entities.Rating;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ import java.util.List;
 public class User {
 
     @Id
-    private int userId;
+    private String userId;
 
     @Column(name ="Name")
     private String name ;
@@ -27,15 +28,7 @@ public class User {
     @Column(name="About")
     private String about;
 
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-
+    @Transient
+    private List<Rating> ratings;
 
 }

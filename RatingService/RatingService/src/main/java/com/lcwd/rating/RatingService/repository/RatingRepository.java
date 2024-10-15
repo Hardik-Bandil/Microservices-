@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, Integer> {
 
-    List<Rating> findByUserId(String userId) ;
+    List<Rating> getByUserId(String userId) ;
     List<Rating> findByHotelId(String hotelId);
 }

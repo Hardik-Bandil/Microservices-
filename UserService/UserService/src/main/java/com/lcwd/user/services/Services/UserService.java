@@ -12,7 +12,7 @@ public interface UserService {
 
         List<User> getAlluser();
 
-        User getUser(Integer userId);
+        User getUser(String userId);
 
 
 
