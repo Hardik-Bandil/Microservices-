@@ -18,6 +18,7 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public Rating create(Rating rating) {
         Random random = new Random();
+        //random id number
         Integer newRandom = Math.abs(random.nextInt()); // Use absolute value to avoid negative IDs
         rating.setRatingId(newRandom);
        return ratingRepository.save(rating);
